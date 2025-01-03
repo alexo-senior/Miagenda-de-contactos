@@ -1,9 +1,8 @@
 from django.urls import path
-#from myagenda.contactos import admin
+from .import views
 
 
 
 urlpatterns = [
-    
-
-]
+    path('', views.index, name='toDo')
+    ]

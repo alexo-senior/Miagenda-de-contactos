@@ -1,6 +1,6 @@
 
 :root {
-    --color-primary: blue;
+    --color-primary: red;
     --color-text:#666 ;
     --font-main:Roboto-bold;
     --font-text:Roboto-Regular; 
@@ -41,7 +41,59 @@ h1, h2, h3, h4, h5, h6 {
 
 /* layout settings */
 
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100dvw;
+    height: 80px;
+    background-color: var(--color-primary);
+
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    text-transform: uppercase;
+    font-family: var(--font-main);
+
+}
+nav ul li a:hover {
+    color:#666;
+}
+
+main {
+    display: flex;
+    width: 100vw;
+    margin: 50px 0;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+
+
+.list {
+    display: flex;
+    border: 1px solid var(--color-text);
+    border-radius: 10px;
+    width: 50%;
+}
 /* End layout settings */
-
-
-
