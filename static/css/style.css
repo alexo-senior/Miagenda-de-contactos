@@ -82,18 +82,111 @@ nav ul li a:hover {
 
 main {
     display: flex;
+    flex-direction: column;
     width: 100vw;
     margin: 50px 0;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
     
 }
 
-
-.list {
-    display: flex;
-    border: 1px solid var(--color-text);
-    border-radius: 10px;
-    width: 50%;
+.contact-list-container {
+    padding: 20px;
 }
-/* End layout settings */
+
+.contact-list {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.contact-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-card h3 {
+    margin: 0;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.btn-delete {
+    background-color: #bd082f;
+    color: white;
+}
+.btn-delete:hover {
+    background-color: white;
+    color:var(--color-primary);
+}
+
+
+.btn-edit {
+    background-color: #866b03;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: white;
+    color:var(--color-primary);
+}
+
+.btn-detail {
+    background-color: blue;
+    color: white;
+}
+
+.btn-detail:hover {
+    background-color: white;
+    color:var(--color-primary);
+}
+
+.search {
+    margin: 20px;
+    width: 100px;
+    display: flex;
+}
+
+.search-bar {
+    padding: 5%;
+    width: 100px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+
+
+}
+.bt-search {
+    margin: 20px;
+    width: 19%;
+    background-color:var(--color-primary);
+    color: white;
+    outline: none;
+    border: 0;
+    box-shadow: 0;
+    cursor: pointer;
+    
+
+}
+.bt-search:hover {
+    background-color: white;
+    color: var(--color-primary);
+}

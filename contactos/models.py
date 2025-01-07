@@ -14,11 +14,11 @@ class Contacto(models.Model):
     direccion = models.TextField(blank=True, null=True)
     compañia = models.CharField(max_length=50, blank=True, null=True)
     fecha_nacimiento = models.DateField(blank=True, null=True)
-    date = models.DateTimeField(default=date.today)
+    date = models.DateField(default=date.today)
     notas = models.TextField(blank=True, null=True)
         
     def __str__(self):
-        return f"{self.nombre} {self.apellidos} {self.telefono_uno}"
+        return f"{self.nombre}"
     
     
     

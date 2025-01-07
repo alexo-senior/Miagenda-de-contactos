@@ -1,18 +1,31 @@
 {% extends 'layout/base.html' %}
 
-{% block title %} Contactos {% endblock %}
+{% block titulo %} Contactos {% endblock %}
 
 {% block contenido %}
-<ul class="lista-de-contactos">
-    <li>Contacto 1</li>
-    <li>Contacto 2</li>
-    <li>Contacto 3</li>
-    <li>Contacto 4</li>
-    <li>Contacto 5</li>
-    <li>Contacto 6</li>
-    <li>Contacto 7</li>
-</ul>
+<form class="search-form" action="{% url 'contactos' %}" method="GET">
+    <input type="text" name="search" class="search-bar" id="search" placeholder="Buscar contacto...">
+    <input type="Submit" value="Buscar" class="btn btn-search">
+</form>
+
+<div class="contact-list-container">
+    <ulul class="contact-list">
+        {% for contacto in contactos %}
+        <li class="contact-card">
+            <h3>{{ contacto }}</h3>
+            <div class="contact-actions">
+                <a href="#" class="btn btn-delete">Borrar</a>
+                <a href="#" class="btn btn-edit">Editar</a>
+                <a href="#" class="btn btn-detail">Ver</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
+
+
+
 
 
 
