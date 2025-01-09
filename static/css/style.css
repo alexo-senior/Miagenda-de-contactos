@@ -190,3 +190,18 @@ main {
     background-color: white;
     color: var(--color-primary);
 }
+
+.aux-btns {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+
+}
+
+.aux-btns a {
+    padding: right 10px;
+    text-decoration: none;
+    
+
+}

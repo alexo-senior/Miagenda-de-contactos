@@ -1,15 +1,15 @@
 
 from django.forms import ModelForm
-from .models import contacto
+from .models import Contacto
 
 class ContactoForm(ModelForm):
     class Meta:
-        model = contacto
+        model = Contacto
         #fields = '__all__'# de esta forma se llama a todos los campos d ela tabla contacto
         fields = ['nombre', 'telefono',
-                'date', 'apellidos', 'movil',
+                'apellidos', 'movil',
                 'email', 'direccion', 'compañia',
-                'fecha_nacimiento', 'notas']
+                'notas']#algunos valores se excluyeron por seguridad; evitar modificaciones
         
         
         # Agregando ayuda a los campos

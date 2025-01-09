@@ -7,16 +7,19 @@
     <input type="text" name="search" class="search-bar" id="search" placeholder="Buscar contacto...">
     <input type="Submit" value="Buscar" class="btn btn-search">
 </form>
+<span class="aux-btns"><a href="{% url 'contactos' %}"> Ver Todos los Contactos </a> |<a href="#">Añadir</a></span>
 
 <div class="contact-list-container">
-    <ulul class="contact-list">
+    <ul class="contact-list">
         {% for contacto in contactos %}
+        <ul>
         <li class="contact-card">
             <h3>{{ contacto }}</h3>
             <div class="contact-actions">
                 <a href="#" class="btn btn-delete">Borrar</a>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-detail">Ver</a>
+                <a href="{% url 'edit' id=contacto.id %}" class="btn btn-edit">Editar</a>
+                <a href="{% url 'view' id=contacto.id %}" class="btn btn-detail">Ver</a>
+
             </div>
         </li>
         {% endfor %}
