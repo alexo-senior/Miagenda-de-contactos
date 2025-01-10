@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Contacto
 from .forms import ContactoForm
 from django.contrib import messages
+
 
 
 #filtrar los contactos por nombre
@@ -42,6 +43,19 @@ def edit(request, id):
     
     
         
+def create(request):
+    if request.method == 'GET':#si el metodo es GET
+        form = ContactoForm#se crea un formulario
+        contexto = {'form': form}#se crea un diccionario con el formulario
+        return render(request, 'contacto/create.html', contexto) #se renderiza la plantilla create.html con el contexto
     
-    
+    if request.method == 'POST':
+        form = ContactoForm(request.POST)#se crea un formulario con los datos del contacto
+        if form.is_valid():
+            form.save()
+        return redirect('contactos')#se redirige a la ruta contactos
+        messages.success(request, 'Contacto creado correctamente')
+        
+        
+
     

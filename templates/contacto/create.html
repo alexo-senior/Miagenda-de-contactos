@@ -1,7 +1,7 @@
 
 {% extends 'layout/base.html' %}
 
-{% block titulo %} Editar Contactos {% endblock %}
+{% block titulo %} Cear Contactos {% endblock %}
 
 {% block styles %}
 
@@ -23,7 +23,7 @@
 {% endif %}
 
 <span class="aux-btns"><a href="{% url 'contactos' %}"> Volver Atrás </a></span>
-<form action="{% url 'edit' id=id %}" method="POST" >
+<form action="{% url 'create' %}" method="POST" >
     {% csrf_token %}
 
     {{ form.as_p }}
@@ -31,12 +31,3 @@
     <input type="submit" value="Enviar" class="btn-send" />
 </form>
 {% endblock %}
-
-
-    
-
-        
-
-
-
-
