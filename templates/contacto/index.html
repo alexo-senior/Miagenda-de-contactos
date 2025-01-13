@@ -16,7 +16,7 @@
         <li class="contact-card">
             <h3>{{ contacto }}</h3>
             <div class="contact-actions">
-                <a href="#" class="btn btn-delete">Borrar</a>
+                <a href="{% url 'delete' id=contacto.id %}" class="btn btn-delete">Borrar</a>
                 <a href="{% url 'edit' id=contacto.id %}" class="btn btn-edit">Editar</a>
                 <a href="{% url 'view' id=contacto.id %}" class="btn btn-detail">Ver</a>
 
@@ -26,6 +26,7 @@
     </ul>
 </div>
 {% endblock %}
+
 
 
 

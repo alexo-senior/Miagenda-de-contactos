@@ -20,7 +20,7 @@ def view(request, id):
     contexto = {'contacto': contacto}#se crea un diccionario con el contacto
     return render(request, "contacto/detail.html", contexto)#se renderiza la plantilla detail.html con el contexto
 
-#editar o crear contactos por el id
+#editar  contactos por el id
 
 
 def edit(request, id):
@@ -41,8 +41,7 @@ def edit(request, id):
         #return HttpResponse('Correcto')#si el metodo es POST se retorna un mensaje
     
     
-    
-        
+    # crear contactos, primero hacemos un get si el metodo es GET, si es POST se crea un contacto
 def create(request):
     if request.method == 'GET':#si el metodo es GET
         form = ContactoForm#se crea un formulario
@@ -57,5 +56,21 @@ def create(request):
         messages.success(request, 'Contacto creado correctamente')
         
         
+#en la vida real no se debe hacer el borrado a traves de una url, me refiero a html
+# se debe hacer a traves de un formulario, asi evitas que alguien borre un contacto sin querer
+#o de forma maliciosa        
+        
+def delete(request, id):
+    contacto = Contacto.objects.get(id=id)#se obtiene el contacto con el id que se pasa como parametro
+    contacto.delete()#se elimina el contacto
+    return redirect('contactos')#se redirige a la ruta contactos en general ojo que no se redirige a la ruta index
+    messages.success(request, 'Contacto eliminado correctamente')#se muestra un mensaje de exito
+    
 
+    
+    
+    
+    
+
+    
     
