@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+    <h2>Detalles de la Tarea: {{ todo.titulo }}</h2>
+    <p><strong>Descripción:</strong> {{ todo.descripcion }}</p>
+    <p><strong>Prioridad:</strong> {{ todo.get_prioridad_display }}</p>
+    <p><strong>Fecha de Creación:</strong> {{ todo.fecha_creacion }}</p>
+    <p><strong>Fecha de Finalización:</strong> {{ todo.fecha_finalizacion }}</p>
+    <p><strong>Tiempo Estimado:</strong> {{ todo.tiempo_estimado }} horas</p>
+
+    <div class="contact-actions">
+        <a href="{% url 'todo_edit' id=todo.id %}" class="btn btn-edit">Editar</a>
+        <a href="{% url 'todo_delete' id=todo.id %}" class="btn btn-delete">Borrar</a>
+        <a href="{% url 'toDo' %}" class="btn btn-back">Volver</a>
+    </div>
+{% endblock %}

@@ -71,6 +71,8 @@ def delete(request, id):
     
     
     
+    
+    
 
     
     
