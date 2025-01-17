@@ -126,7 +126,7 @@ STATIC_URL = "/static/"
 #se copia de la documentacion django
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    "/var/www/static/",
+    
 ]
 
 # Default primary key field type

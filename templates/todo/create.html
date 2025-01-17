@@ -22,7 +22,7 @@
 {% endif %}
 
 <span class="aux-btns"><a href="{% url 'toDo' %}"> Volver Atrás </a></span>
-<form action="{% url 'todo_create' id=id %}" method="POST">
+<form action="{% url 'todo_create' %}" method="POST">
     {% csrf_token %}
     <p>
         {{ form.as_p }}
@@ -33,4 +33,4 @@
     </div>
 </form>
 
-
+{% endblock %}

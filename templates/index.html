@@ -7,5 +7,17 @@
 {% block contenido %}
 
     <h1>Bienvenido a tu gestor de contactos</h1>
+    <div class="cards" >
+        <div class="card">
+            <a href="{% url 'contactos' %}" Titulo="Ir a Contactos">CONTACTOS</a>
+        </div>
+        <div class="card">
+            <a href="{% url 'toDo' %}" Titulo=" Ir a Tareas">TAREAS</a>
+            
+        </div>
+    </div>
 
 {% endblock %}
+
+
+
