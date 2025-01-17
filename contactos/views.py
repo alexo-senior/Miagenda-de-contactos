@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Contacto
 from .forms import ContactoForm
 from django.contrib import messages
@@ -24,7 +24,7 @@ def view(request, id):
 
 
 def edit(request, id):
-    contacto = Contacto.objects.get(id=id)#se obtiene el contacto con el id que se pasa como parametro
+    contacto = get_object_or_404(Contacto, id=id)#se obtiene el contacto con el id que se pasa como parametro
     if request.method == 'GET':#si el metodo es GET
         form = ContactoForm(instance=contacto)#se crea un formulario con los datos del contacto
         contexto = {'form': form, 'id': id}#se crea un diccionario con el formulario
@@ -39,6 +39,7 @@ def edit(request, id):
     #es un mensaje de django que se muestra en la plantilla create.html
     
         #return HttpResponse('Correcto')#si el metodo es POST se retorna un mensaje
+    
     
     
     # crear contactos, primero hacemos un get si el metodo es GET, si es POST se crea un contacto

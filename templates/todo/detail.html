@@ -1,6 +1,8 @@
-{% extends "base.html" %}
+{% extends 'layout/base.html' %}
+{% block titulo %} Tareas {{ todo.titulo }} {% endblock %}
 
 {% block contenido %}
+<span class="aux-btns"><a href="{% url 'toDo' %}"> Volver Atrás </a></span>
     <h2>Detalles de la Tarea: {{ todo.titulo }}</h2>
     <p><strong>Descripción:</strong> {{ todo.descripcion }}</p>
     <p><strong>Prioridad:</strong> {{ todo.get_prioridad_display }}</p>
