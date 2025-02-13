@@ -10,3 +10,5 @@ urlpatterns = [
     path('create/', views.create, name='todo_create'),#se crea una ruta con el nombre create
     path('delete/<int:id>',views.delete, name='todo_delete')
     ]
+
+

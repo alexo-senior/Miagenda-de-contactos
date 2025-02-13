@@ -2,15 +2,31 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Contacto
 from .forms import ContactoForm
 from django.contrib import messages
+from django.http import HttpResponse
 
 
 
 #filtrar los contactos por nombre
+#aqui se colocar letter como parametro opcional para poder filtrar los contactos por la letra que empieza el nombre
+#si no se coloca nada en la url, se muestran todos los contactos
 
-def index(request):
-    contactos = Contacto.objects.filter(nombre__contains=request.GET.get('search', ''))#se filtran los contactos por el nombre
+def index(request, letter=None):
+    print(f"Letra recibida: {letter}")
+    if letter != None:#si letter es diferente de None
+        #return HttpResponse('Mostrar contactos que empiecen con la letra ' + letter)#se retorna un mensaje
+        contactos = Contacto.objects.filter(nombre__istartswith=letter)#se filtran los contactos por la letra que empieza el nombre
+    else:
+        query = request.GET.get('search', '')#se obtiene el valor del input search
+        if query:
+            contactos = Contacto.objects.filter(nombre__icontains=query) # Filtra por coincidencia en el nombre
+        else:
+            contactos = Contacto.objects.all()#se obtienen todos los contactos
+        
     contexto = {'contactos': contactos}#se crea un diccionario con los contactos
     return render(request, "contacto/index.html", contexto)#se renderiza la plantilla index.html con el contexto
+        
+
+    
 
 
 #obtener los contactos por el id
@@ -66,6 +82,9 @@ def delete(request, id):
     contacto.delete()#se elimina el contacto
     return redirect('contactos')#se redirige a la ruta contactos en general ojo que no se redirige a la ruta index
     messages.success(request, 'Contacto eliminado correctamente')#se muestra un mensaje de exito
+    
+    
+    
     
 
     

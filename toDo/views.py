@@ -10,11 +10,11 @@ from .forms import  ToDoForm
 #Vista de index 
 
 def index(request):
-    search_query = request.GET.get('search', '')#
+    search_query = request.GET.get('search', '')#se obtiene el valor de la busqueda por medio de la url
     Todo = ToDo.objects.filter(titulo__icontains=search_query)
     contexto ={
         'Todo':Todo
-    }
+    }#se crea un diccionario con la lista de tareas
     return render(request, "toDo/index.html", contexto)#se renderiza la plantilla index.html con el contexto
 
 
@@ -76,6 +76,7 @@ def delete(request, id):
     todo = ToDo.objects.get(id=id)
     todo.delete()
     return redirect('toDo')
+
 
 
 

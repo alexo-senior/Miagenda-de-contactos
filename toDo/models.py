@@ -25,6 +25,7 @@ class ToDo(models.Model):
         # get_prioridad_display(): Este método se utiliza
         # para obtener la representación legible de la elección de prioridad (baja, media, alta).
         return f"[{self.get_prioridad_display()}] {self.titulo} - {descripcion_truncada}"
+    
 
 
     

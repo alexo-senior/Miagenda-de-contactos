@@ -3,10 +3,13 @@
 {% block titulo %} Tareas {% endblock %}
 
 {% block contenido %}
-<form class="search-form" action="{% url 'toDo' %}" method="GET">
-    <input type="text" name="search" class="search-bar" id="search" placeholder="Buscar Tareas...">
-    <input type="Submit" value="Buscar" class="btn btn-search">
-</form>
+
+
+
+{%include 'todo/partials/search.html' %}
+
+
+
 <span class="aux-btns"><a href="{% url 'toDo' %}"> Ver Todas </a> |<a href="{% url 'todo_create' %}">Añadir</a></span>
 
 <div class="contact-list-container">
@@ -16,9 +19,11 @@
         <li class="contact-card">
             <h3>{{ todo }}</h3>
             <div class="contact-actions">
-                <a href="{% url 'todo_delete' id=todo.id %}" class="btn btn-delete">Borrar</a>
-                <a href="{% url 'todo_edit' id=todo.id %}" class="btn btn-edit">Editar</a>
                 <a href="{% url 'todo_view' id=todo.id %}" class="btn btn-detail">Ver</a>
+                <a href="{% url 'todo_edit' id=todo.id %}" class="btn btn-edit">Editar</a>
+                <a href="{% url 'todo_delete' id=todo.id %}" class="btn btn-delete">Borrar</a>
+                
+                
 
             </div>
         </li>
